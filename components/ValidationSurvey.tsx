@@ -12,7 +12,6 @@ export const ValidationSurvey: React.FC<ValidationSurveyProps> = ({ onSubmit }) 
     currentSolution: '',
     willingnessToPay: 'Medium'
   });
-  const [mode, setMode] = useState<'FEATURE' | 'BUG'>('FEATURE');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,22 +22,7 @@ export const ValidationSurvey: React.FC<ValidationSurveyProps> = ({ onSubmit }) 
     <div className="bg-white border border-gray-50 rounded-[3rem] p-12 shadow-soft w-full">
       <div className="text-center mb-12">
         <h3 className="text-3xl font-serif text-black mb-4">Help us shape the coach.</h3>
-        <p className="text-gray-400 text-sm max-w-md mx-auto leading-relaxed">Suggest a feature or report a bug. We listen to every founder journey.</p>
-      </div>
-
-      <div className="flex justify-center gap-4 mb-8">
-        <button 
-          onClick={() => setMode('FEATURE')}
-          className={`px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all ${mode === 'FEATURE' ? 'bg-black text-white' : 'bg-gray-50 text-gray-300 hover:text-black'}`}
-        >
-          SUGGEST FEATURE
-        </button>
-        <button 
-          onClick={() => setMode('BUG')}
-          className={`px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all ${mode === 'BUG' ? 'bg-black text-white' : 'bg-gray-50 text-gray-300 hover:text-black'}`}
-        >
-          REPORT BUG
-        </button>
+        <p className="text-gray-400 text-sm max-w-md mx-auto leading-relaxed">Share what would make your founder journey easier. We listen to every founder journey.</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-8">
