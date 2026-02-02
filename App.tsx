@@ -2,10 +2,12 @@
 import React, { useState, useEffect } from 'react';
 import { Layout } from './components/Layout';
 import { WaitlistForm } from './components/WaitlistForm';
-import { WaitlistEntry } from './types';
+import { ValidationSurvey } from './components/ValidationSurvey';
+import { WaitlistEntry, SurveyResponse } from './types';
 
 const App: React.FC = () => {
   const [currentEntry, setCurrentEntry] = useState<WaitlistEntry | null>(null);
+  const [showSurvey, setShowSurvey] = useState(false);
 
   // Initialize Vercel Analytics
 
@@ -53,6 +55,16 @@ const App: React.FC = () => {
 
   const handleJoinSuccess = (entry: WaitlistEntry) => {
     setCurrentEntry(entry);
+    setShowSurvey(true);
+    setTimeout(() => {
+      document.getElementById('post-signup')?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  };
+
+  const handleSurveySubmit = (survey: SurveyResponse) => {
+    if (!currentEntry) return;
+    setCurrentEntry({ ...currentEntry, surveyResponses: survey });
+    setShowSurvey(false);
   };
 
   return (
@@ -100,7 +112,16 @@ const App: React.FC = () => {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-6xl h-[600px] bg-orange/5 blur-[140px] rounded-full -z-10"></div>
         </section>
 
-        
+        {/* VALIDATION SURVEY (Appears after signup) */}
+        <div id="post-signup">
+          {currentEntry && showSurvey && (
+            <section className="py-24 px-6 bg-gray-50">
+              <div className="max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-700">
+                <ValidationSurvey onSubmit={handleSurveySubmit} />
+              </div>
+            </section>
+          )}
+        </div>
 
         {/* EXECUTION SYSTEM - OKRs & IMPACT */}
         <section className="py-32 px-6 bg-white overflow-hidden">
