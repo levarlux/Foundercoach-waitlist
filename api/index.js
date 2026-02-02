@@ -17,8 +17,8 @@ if (fs.existsSync(envPath)) {
 }
 
 const express = require('express');
-const cors = require('./middleware/cors.cjs');
-const waitlistRoutes = require('./routes/waitlist.cjs');
+const cors = require('./middleware/cors.js');
+const waitlistRoutes = require('./routes/waitlist.js');
 
 const app = express();
 

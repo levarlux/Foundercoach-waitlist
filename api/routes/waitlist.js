@@ -1,5 +1,5 @@
 const express = require('express');
-const { sendWaitlistNotification } = require('../services/resendService.cjs');
+const { sendWaitlistNotification } = require('../services/resendService.js');
 
 const router = express.Router();
 
