@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FounderCoach — Turn fear into focused action.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --brand-orange: #FF4F00;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #ffffff;
+        color: #1a1a1a;
+      }
+      .font-serif {
+        font-family: 'Playfair Display', serif;
+      }
+      .font-instrument {
+        font-family: 'Instrument Serif', serif;
+      }
+      .text-orange {
+        color: var(--brand-orange);
+      }
+      .bg-orange {
+        background-color: var(--brand-orange);
+      }
+      .border-orange {
+        border-color: var(--brand-orange);
+      }
+      .shadow-soft {
+        box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "react/": "https://esm.sh/react@^19.2.4/",
+        "react": "https://esm.sh/react@^19.2.4",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+        "@google/genai": "https://esm.sh/@google/genai@^1.39.0",
+        "recharts": "https://esm.sh/recharts@^3.7.0"
+      }
+    }
+    </script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
