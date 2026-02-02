@@ -9,6 +9,21 @@ const App: React.FC = () => {
   const [currentEntry, setCurrentEntry] = useState<WaitlistEntry | null>(null);
   const [showSurvey, setShowSurvey] = useState(false);
 
+  // Initialize Vercel Analytics
+
+  // Track waitlist form submissions (analytics disabled for now)
+  useEffect(() => {
+    if (currentEntry) {
+      // Analytics can be added back here after Vercel deployment is successful
+      console.log('Waitlist submission:', {
+        email: currentEntry.email,
+        position: currentEntry.position,
+        timestamp: currentEntry.timestamp,
+        referralCode: currentEntry.referralCode
+      });
+    }
+  }, [currentEntry]);
+
   // Typewriter logic: fear, anxiety, paralysis, guilt, drift
   const words = ["fear", "anxiety", "paralysis", "guilt", "drift"];
   const [wordIndex, setWordIndex] = useState(0);
@@ -294,6 +309,7 @@ const App: React.FC = () => {
         </section>
       </div>
     </Layout>
+
   );
 };
 
