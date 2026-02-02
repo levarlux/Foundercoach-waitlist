@@ -1,5 +1,5 @@
-import express from 'express';
-import { sendWaitlistNotification } from '../services/resendService.js';
+const express = require('express');
+const { sendWaitlistNotification } = require('../services/resendService.cjs');
 
 const router = express.Router();
 
@@ -61,4 +61,4 @@ router.get('/health', (req, res) => {
   });
 });
 
-export default router;
+module.exports = router;

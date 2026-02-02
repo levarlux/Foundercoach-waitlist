@@ -29,4 +29,4 @@ const cors = (req, res, next) => {
   }
 };
 
-export default cors;
+module.exports = cors;

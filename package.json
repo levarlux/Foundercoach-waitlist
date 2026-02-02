@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"vite\" \"node api/dev-server.js\"",
+    "dev": "concurrently \"vite\" \"node api/dev-server.cjs\"",
     "dev:frontend": "vite",
-    "dev:api": "node api/dev-server.js",
+    "dev:api": "node api/dev-server.cjs",
     "build": "vite build",
     "preview": "vite preview"
   },

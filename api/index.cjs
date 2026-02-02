@@ -1,6 +1,24 @@
+const path = require('path');
+const fs = require('fs');
+
+// Load environment variables from .env.local
+const envPath = path.join(__dirname, '..', '.env.local');
+if (fs.existsSync(envPath)) {
+  const envContent = fs.readFileSync(envPath, 'utf8');
+  envContent.split('\n').forEach(line => {
+    const trimmed = line.trim();
+    if (trimmed && !trimmed.startsWith('#')) {
+      const [key, ...values] = trimmed.split('=');
+      if (key && values.length > 0) {
+        process.env[key] = values.join('=');
+      }
+    }
+  });
+}
+
 const express = require('express');
-const cors = require('../middleware/cors');
-const waitlistRoutes = require('./routes/waitlist');
+const cors = require('./middleware/cors.cjs');
+const waitlistRoutes = require('./routes/waitlist.cjs');
 
 const app = express();
 
